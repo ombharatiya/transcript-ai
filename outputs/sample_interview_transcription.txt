@@ -1,0 +1,27 @@
+Thank you for taking the time to speak with me today. Could you start by telling me a bit about your background and how you got into software engineering?
+
+Absolutely. I started my journey in computer science about eight years ago. I was actually studying mechanical engineering initially, but I took a programming course as an elective and fell in love with it. The logical problem-solving aspect really appealed to me.
+
+After switching majors, I focused on learning various programming languages - Python, Java, JavaScript. I built several personal projects, including a web application for tracking personal finances and a mobile app for local event discovery.
+
+What drew you specifically to this company and this role?
+
+I've been following your company for about two years now. Your commitment to open-source development and the innovative work you're doing in machine learning really aligns with my interests. This particular role excites me because it combines backend development with data engineering, which is exactly where I want to grow my career.
+
+I've also heard great things about the company culture and the emphasis on continuous learning. In my current role, I sometimes feel limited in terms of exploring new technologies, so the opportunity to work with cutting-edge tools is very appealing.
+
+Can you walk me through a challenging project you've worked on recently?
+
+Sure. In my current position, we had a legacy system that was processing about 100,000 transactions per day, but it was becoming increasingly slow and unreliable. The codebase was quite old, written in an older version of Java with minimal documentation.
+
+I led a team of three developers to redesign and migrate this system. We chose to rebuild it using a microservices architecture with Spring Boot and deployed it on AWS. The biggest challenge was ensuring zero downtime during the migration while maintaining data integrity.
+
+We implemented a gradual rollout strategy, running both systems in parallel for several weeks while gradually shifting traffic. The end result was a 300% improvement in processing speed and significantly better system reliability.
+
+That sounds like a substantial undertaking. How do you typically approach learning new technologies?
+
+I'm a big believer in hands-on learning. When I encounter a new technology, I start by building a small project with it. For example, when I wanted to learn React, I rebuilt one of my existing projects using React instead of vanilla JavaScript.
+
+I also make it a point to read technical blogs, follow industry leaders on social media, and participate in developer communities. I find that explaining concepts to others really helps solidify my own understanding, so I try to contribute to Stack Overflow and write technical blog posts when I can.
+
+Continuous learning is essential in this field, and I've found that staying curious and being willing to step outside my comfort zone has been key to my growth as a developer.

@@ -1,0 +1,58 @@
+{
+  "text": " Good morning everyone, thank you for joining today's project review meeting. Let's start with the status updates from each team. Sarah, could you begin with the development team progress? Sure, thanks Mark. We've completed the user authentication module and the dashboard interface. The API integration is currently at 80% completion, and we expect to finish by Friday.",
+  "segments": [
+    {
+      "id": 0,
+      "seek": 0,
+      "start": 0.0,
+      "end": 8.5,
+      "text": " Good morning everyone, thank you for joining today's project review meeting.",
+      "tokens": [50364, 2205, 2446, 1518, 11, 1309, 291, 337, 5549, 965, 311, 1716, 3131, 3440, 13, 50664],
+      "temperature": 0.0,
+      "avg_logprob": -0.3456789,
+      "compression_ratio": 1.2345,
+      "no_speech_prob": 0.0123
+    },
+    {
+      "id": 1,
+      "seek": 850,
+      "start": 8.5,
+      "end": 15.2,
+      "text": " Let's start with the status updates from each team.",
+      "tokens": [50664, 961, 311, 722, 365, 264, 6558, 9205, 490, 1184, 1469, 13, 51000],
+      "temperature": 0.0,
+      "avg_logprob": -0.2789123,
+      "compression_ratio": 1.1876,
+      "no_speech_prob": 0.0089
+    },
+    {
+      "id": 2,
+      "seek": 1520,
+      "start": 15.2,
+      "end": 22.8,
+      "text": " Sarah, could you begin with the development team progress?",
+      "tokens": [51000, 9519, 11, 727, 291, 1841, 365, 264, 3250, 1469, 4205, 30, 51380],
+      "temperature": 0.0,
+      "avg_logprob": -0.1923456,
+      "compression_ratio": 1.3456,
+      "no_speech_prob": 0.0045
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "file_info": {
+      "filename": "sample_meeting.wav",
+      "size_mb": 12.8,
+      "format": ".wav",
+      "supported": true
+    },
+    "model_used": "base",
+    "transcription_time": "0:01:45.234567",
+    "timestamp": "2024-08-10T14:30:15.123456",
+    "options_used": {
+      "task": "transcribe",
+      "temperature": 0.0,
+      "language": "en"
+    }
+  }
+}

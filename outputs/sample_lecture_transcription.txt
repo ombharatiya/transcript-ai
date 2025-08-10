@@ -1,0 +1,23 @@
+Welcome to Introduction to Machine Learning, Lecture 15. Today we're going to cover neural networks and deep learning fundamentals.
+
+Let's start with the basic concept of an artificial neuron. An artificial neuron, also called a perceptron, is inspired by biological neurons in the human brain. It takes multiple inputs, applies weights to these inputs, sums them up, and then passes the result through an activation function to produce an output.
+
+The mathematical representation is quite simple. We have inputs x1, x2, through xn, each multiplied by corresponding weights w1, w2, through wn. We add a bias term b, and the linear combination becomes: z equals w1x1 plus w2x2 plus... plus wnxn plus b.
+
+This linear combination z is then passed through an activation function f(z) to get the final output y. Common activation functions include the sigmoid function, hyperbolic tangent, and the ReLU function.
+
+Now, why do we need activation functions? Without them, our neural network would just be performing linear transformations, no matter how many layers we add. The activation function introduces non-linearity, which allows the network to learn complex patterns and relationships in the data.
+
+Let's talk about the sigmoid function first. The sigmoid function maps any real number to a value between 0 and 1, making it useful for binary classification problems. However, it has some drawbacks, including the vanishing gradient problem, which we'll discuss in more detail next week.
+
+The ReLU function, or Rectified Linear Unit, has become very popular in modern deep learning. It's defined as f(x) = max(0, x). It's computationally efficient and helps mitigate the vanishing gradient problem to some extent.
+
+Now, a single neuron is quite limited in what it can learn. The real power comes when we connect multiple neurons together to form a neural network. In a feedforward neural network, neurons are organized in layers. We have an input layer, one or more hidden layers, and an output layer.
+
+Information flows from the input layer through the hidden layers to the output layer. Each neuron in one layer is connected to all neurons in the next layer, which is why these are called fully connected or dense layers.
+
+The process of training a neural network involves adjusting the weights and biases to minimize a loss function. We use an algorithm called backpropagation, which calculates the gradient of the loss function with respect to each weight and bias in the network.
+
+For your homework this week, I want you to implement a simple neural network from scratch using only NumPy. This will help you understand the underlying mathematics before we move on to using frameworks like TensorFlow or PyTorch.
+
+Next week, we'll dive deeper into different types of neural network architectures, including convolutional neural networks for image processing and recurrent neural networks for sequential data. Please make sure to review the assigned readings before our next class.
