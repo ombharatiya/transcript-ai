@@ -1,0 +1,31 @@
+{
+  "name": "transcript-ai-web",
+  "version": "1.0.0",
+  "description": "TranscriptAI Web Interface - Browser-based AI audio transcription",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "python -m http.server 8000 --directory src",
+    "build": "mkdir -p dist && cp -r src/* dist/",
+    "serve": "npx http-server src -p 8000 -o",
+    "deploy": "cp -r src/* ../docs/"
+  },
+  "keywords": [
+    "transcription",
+    "ai",
+    "whisper",
+    "speech-to-text",
+    "audio",
+    "web-app"
+  ],
+  "author": "TranscriptAI",
+  "license": "MIT",
+  "homepage": "https://ombharatiya.github.io/transcript-ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ombharatiya/transcript-ai.git",
+    "directory": "web"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

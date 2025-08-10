@@ -20,30 +20,38 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       
-    - name: Setup Node.js
+    - name: Setup Node.js (optional)
       uses: actions/setup-node@v4
       with:
         node-version: '18'
         cache: 'npm'
         cache-dependency-path: web/package.json
       
-    - name: Install dependencies (if package.json exists)
+    - name: Install dependencies (optional)
       run: |
-        if [ -f web/package.json ]; then
-          cd web
-          npm ci
-        fi
+        cd web
+        npm ci --only=dev || echo "No dependencies to install"
+      
+    - name: Verify web source files
+      run: |
+        echo "Checking web source files..."
+        ls -la web/src/
+        echo "✅ Web source files found"
     
     - name: Build web interface
       run: |
-        # Copy web source files to docs for GitHub Pages
-        mkdir -p docs
-        cp -r web/src/* docs/
+        cd web
+        npm run build || (mkdir -p dist && cp -r src/* dist/)
         
-        # Add any build processing here if needed
-        # For now, we're using vanilla HTML/CSS/JS
+        # Copy built files to docs for GitHub Pages
+        mkdir -p ../docs
+        cp -r dist/* ../docs/ || cp -r src/* ../docs/
         
-        echo "Web interface built successfully"
+        # Verify files were copied
+        echo "Files copied to docs directory:"
+        ls -la ../docs/
+        
+        echo "✅ Web interface built successfully"
     
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
@@ -63,3 +71,5 @@ jobs:
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "📁 **Source**: \`web/src/\`" >> $GITHUB_STEP_SUMMARY
         echo "📁 **Deployed**: \`docs/\` → \`gh-pages\` branch" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "🔧 **Technology**: Vanilla HTML/CSS/JavaScript" >> $GITHUB_STEP_SUMMARY

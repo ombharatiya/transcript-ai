@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TranscriptAI - Free AI-powered audio transcription tool. Convert speech to text using OpenAI Whisper. Support for multiple languages and audio formats.">
+    <meta name="keywords" content="AI transcription, speech to text, audio converter, OpenAI Whisper, voice recognition, free transcription">
+    <meta name="author" content="TranscriptAI">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="TranscriptAI - AI-Powered Audio Transcription">
+    <meta property="og:description" content="Convert your audio files to text using advanced AI. Free, fast, and supports 99+ languages.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ombharatiya.github.io/transcript-ai">
+    
+    <title>TranscriptAI - AI-Powered Audio Transcription</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>🎙️ TranscriptAI</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#cli">CLI Tool</a>
+                <a href="https://github.com/ombharatiya/transcript-ai" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </nav>
+        
+        <div class="hero-content">
+            <h2>Transform Audio to Text with AI</h2>
+            <p>Free, fast, and accurate transcription using OpenAI's Whisper AI model</p>
+            <div class="hero-features">
+                <span class="badge">🎵 8 Audio Formats</span>
+                <span class="badge">🌍 99+ Languages</span>
+                <span class="badge">🤖 AI-Powered</span>
+                <span class="badge">💰 Completely Free</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="transcription-tool">
+            <div class="container">
+                <div class="tool-header">
+                    <h3>🚀 Try TranscriptAI Now</h3>
+                    <p>Upload your audio file and get accurate transcription in seconds</p>
+                </div>
+
+                <div class="upload-section">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <p class="upload-text">
+                            <strong>Click to upload</strong> or drag and drop your audio file
+                        </p>
+                        <p class="upload-formats">
+                            Supports: MP3, WAV, M4A, AAC, FLAC, OGG, WebM (Max: 25MB)
+                        </p>
+                        <input type="file" id="fileInput" accept="audio/*" hidden>
+                    </div>
+
+                    <div class="options-section" id="optionsSection" style="display: none;">
+                        <div class="option-group">
+                            <label for="modelSelect">AI Model:</label>
+                            <select id="modelSelect">
+                                <option value="base" selected>Base (Balanced)</option>
+                                <option value="small">Small (Faster)</option>
+                                <option value="medium">Medium (Better)</option>
+                                <option value="large">Large (Best Quality)</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label for="languageSelect">Language:</label>
+                            <select id="languageSelect">
+                                <option value="auto">Auto-detect</option>
+                                <option value="en">English</option>
+                                <option value="es">Spanish</option>
+                                <option value="fr">French</option>
+                                <option value="de">German</option>
+                                <option value="it">Italian</option>
+                                <option value="pt">Portuguese</option>
+                                <option value="ru">Russian</option>
+                                <option value="ja">Japanese</option>
+                                <option value="ko">Korean</option>
+                                <option value="zh">Chinese</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label>
+                                <input type="checkbox" id="translateCheck">
+                                Translate to English
+                            </label>
+                        </div>
+
+                        <button id="transcribeBtn" class="btn-primary" disabled>
+                            <i class="fas fa-magic"></i>
+                            Start Transcription
+                        </button>
+                    </div>
+                </div>
+
+                <div class="results-section" id="resultsSection" style="display: none;">
+                    <div class="progress-bar" id="progressBar" style="display: none;">
+                        <div class="progress-fill"></div>
+                        <span class="progress-text">Processing audio...</span>
+                    </div>
+
+                    <div class="transcription-output" id="transcriptionOutput" style="display: none;">
+                        <h4>📝 Transcription Result</h4>
+                        <div class="output-text" id="outputText"></div>
+                        <div class="output-actions">
+                            <button id="copyBtn" class="btn-secondary">
+                                <i class="fas fa-copy"></i> Copy Text
+                            </button>
+                            <button id="downloadBtn" class="btn-secondary">
+                                <i class="fas fa-download"></i> Download TXT
+                            </button>
+                        </div>
+                        <div class="transcription-info" id="transcriptionInfo"></div>
+                    </div>
+
+                    <div class="error-message" id="errorMessage" style="display: none;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span id="errorText"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h3>✨ Why Choose TranscriptAI?</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-robot feature-icon"></i>
+                        <h4>AI-Powered Accuracy</h4>
+                        <p>Uses OpenAI's state-of-the-art Whisper model for highest accuracy transcription</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-globe feature-icon"></i>
+                        <h4>99+ Languages</h4>
+                        <p>Automatic language detection and translation support for global content</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-music feature-icon"></i>
+                        <h4>Multiple Formats</h4>
+                        <p>Support for MP3, WAV, M4A, AAC, FLAC, OGG, WebM and more</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <h4>Privacy First</h4>
+                        <p>Your audio files are processed securely and never stored on our servers</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-bolt feature-icon"></i>
+                        <h4>Lightning Fast</h4>
+                        <p>Get transcription results in seconds, not minutes</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-dollar-sign feature-icon"></i>
+                        <h4>Completely Free</h4>
+                        <p>No subscriptions, no API costs, no hidden fees - forever free</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h3>🔧 How It Works</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Upload Audio</h4>
+                        <p>Choose your audio file from your device</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Select Options</h4>
+                        <p>Choose AI model, language, and other preferences</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Get Results</h4>
+                        <p>Download your accurate text transcription</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cli" class="cli-section">
+            <div class="container">
+                <div class="cli-content">
+                    <div class="cli-text">
+                        <h3>💻 CLI Tool for Developers</h3>
+                        <p>Need batch processing or advanced features? Use our powerful command-line tool:</p>
+                        <div class="cli-features">
+                            <span class="cli-feature">⚡ Batch Processing</span>
+                            <span class="cli-feature">🔧 Advanced Configuration</span>
+                            <span class="cli-feature">📊 Detailed Logging</span>
+                            <span class="cli-feature">🤖 All AI Models</span>
+                        </div>
+                        <div class="cli-actions">
+                            <a href="https://github.com/ombharatiya/transcript-ai" class="btn-primary" target="_blank">
+                                <i class="fab fa-github"></i>
+                                Download CLI Tool
+                            </a>
+                            <a href="#" class="btn-secondary">
+                                <i class="fas fa-book"></i>
+                                View Documentation
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cli-code">
+                        <pre><code># Install TranscriptAI CLI
+git clone https://github.com/ombharatiya/transcript-ai
+cd transcript-ai/cli
+python setup.py
+
+# Transcribe audio
+python src/audio_transcriber.py input/audio.mp3
+
+# Batch processing
+python src/audio_transcriber.py input/*.wav --batch
+
+# Advanced options
+python src/audio_transcriber.py audio.mp3 \
+  --model large \
+  --language en \
+  --task translate</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h4>🎙️ TranscriptAI</h4>
+                    <p>AI-powered audio transcription for everyone</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/ombharatiya/transcript-ai" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://github.com/ombharatiya/transcript-ai/issues" target="_blank">
+                        <i class="fas fa-bug"></i> Report Bug
+                    </a>
+                    <a href="https://github.com/ombharatiya/transcript-ai/issues" target="_blank">
+                        <i class="fas fa-lightbulb"></i> Feature Request
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TranscriptAI. Open Source under MIT License.</p>
+                <p>Powered by <a href="https://openai.com/research/whisper" target="_blank">OpenAI Whisper</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
