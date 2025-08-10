@@ -35,18 +35,24 @@ jobs:
         
       - name: Build web interface
         run: |
-          # Ensure docs directory has the latest web content
-          mkdir -p docs
-          cp -r web/src/* docs/
+          # Verify web source files exist
+          echo "Web source files:"
+          ls -la web/src/
           
-          # Verify build
-          echo "Files in docs directory:"
-          ls -la docs/
+          # Create a clean build directory
+          mkdir -p _site
+          cp -r web/src/* _site/
+          
+          # Verify the web app files
+          echo "Built web application files:"
+          ls -la _site/
+          echo "index.html content preview:"
+          head -10 _site/index.html
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs
+          path: ./_site
 
   # Deployment job
   deploy:
