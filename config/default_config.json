@@ -1,0 +1,23 @@
+{
+  "model_settings": {
+    "default_model": "base",
+    "available_models": ["tiny", "base", "small", "medium", "large", "large-v2", "large-v3"],
+    "default_language": null,
+    "default_task": "transcribe",
+    "default_temperature": 0.0
+  },
+  "output_settings": {
+    "output_directory": "outputs",
+    "save_json_details": true,
+    "log_directory": "logs",
+    "timestamp_filenames": false
+  },
+  "supported_formats": [
+    ".aac", ".flac", ".mp3", ".mp4", ".m4a", 
+    ".ogg", ".wav", ".webm"
+  ],
+  "batch_settings": {
+    "max_concurrent": 1,
+    "continue_on_error": true
+  }
+}

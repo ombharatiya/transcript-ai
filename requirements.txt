@@ -1,0 +1,8 @@
+openai-whisper==20250625
+torch>=2.0.0
+numpy>=1.21.0
+tqdm>=4.64.0
+more-itertools
+numba
+tiktoken
+pydub==0.25.1
