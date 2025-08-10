@@ -108,7 +108,7 @@ class TranscriptAI {
 
         // Validate file type
         if (!this.isValidAudioFile(file)) {
-            this.showError('Please select a valid audio file (MP3, WAV, M4A, AAC, FLAC, OGG, WebM)');
+            this.showError('Please select a valid audio file. Supported: MP3, WAV, M4A, FLAC, OGG, WebM. Note: AAC files not supported by OpenAI API - use CLI tool instead.');
             return;
         }
 
@@ -125,13 +125,17 @@ class TranscriptAI {
     }
 
     isValidAudioFile(file) {
+        // OpenAI API supported formats only
         const validTypes = [
-            'audio/mpeg', 'audio/mp3', 'audio/wav', 'audio/wave', 
-            'audio/x-wav', 'audio/m4a', 'audio/mp4', 'audio/aac',
-            'audio/flac', 'audio/ogg', 'audio/webm'
+            'audio/flac', 'audio/m4a', 'audio/mp3', 'audio/mp4', 
+            'audio/mpeg', 'audio/mpga', 'audio/oga', 'audio/ogg', 
+            'audio/wav', 'audio/webm', 'audio/wave', 'audio/x-wav'
         ];
-        return validTypes.includes(file.type) || 
-               /\.(mp3|wav|m4a|aac|flac|ogg|webm)$/i.test(file.name);
+        
+        // OpenAI supported extensions (no AAC!)
+        const supportedExtensions = /\.(flac|m4a|mp3|mp4|mpeg|mpga|oga|ogg|wav|webm)$/i;
+        
+        return validTypes.includes(file.type) || supportedExtensions.test(file.name);
     }
 
     updateUploadArea(file) {
