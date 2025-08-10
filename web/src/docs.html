@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TranscriptAI Documentation - Complete guide for CLI and web interface usage">
+    <title>TranscriptAI Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="docs.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body class="docs-body">
+    <!-- Navigation -->
+    <nav class="docs-nav">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <h1>🎙️ TranscriptAI</h1>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">
+                    <i class="fas fa-home"></i> Web App
+                </a>
+                <a href="#cli-docs" class="nav-active">
+                    <i class="fas fa-book"></i> Documentation
+                </a>
+                <a href="https://github.com/ombharatiya/transcript-ai" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Documentation Content -->
+    <div class="docs-container">
+        <!-- Sidebar Navigation -->
+        <aside class="docs-sidebar">
+            <div class="sidebar-content">
+                <h3>📚 Documentation</h3>
+                <ul class="sidebar-nav">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#quick-start">Quick Start</a></li>
+                    <li><a href="#web-interface">Web Interface</a></li>
+                    <li><a href="#cli-tool">CLI Tool</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#usage">Usage Examples</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#formats">Supported Formats</a></li>
+                    <li><a href="#models">AI Models</a></li>
+                    <li><a href="#api-keys">API Keys & Security</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                    <li><a href="#contributing">Contributing</a></li>
+                </ul>
+                
+                <div class="sidebar-cta">
+                    <h4>🚀 Try TranscriptAI</h4>
+                    <p>Ready to transcribe your audio?</p>
+                    <a href="index.html" class="cta-button">
+                        <i class="fas fa-play"></i>
+                        Launch Web App
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Documentation -->
+        <main class="docs-main">
+            <div class="docs-content" id="docs-content">
+                <header class="docs-header">
+                    <h1>🎙️ TranscriptAI Documentation</h1>
+                    <p class="docs-subtitle">Complete guide for AI-powered audio transcription</p>
+                    <div class="docs-badges">
+                        <span class="badge-primary">Free & Open Source</span>
+                        <span class="badge-secondary">CLI & Web Interface</span>
+                        <span class="badge-accent">OpenAI Whisper</span>
+                    </div>
+                </header>
+
+                <section id="overview" class="doc-section">
+                    <h2>🌟 Overview</h2>
+                    <p>TranscriptAI is a powerful, free audio transcription tool that uses OpenAI's cutting-edge Whisper AI model. It's available as both a web interface for quick transcriptions and a CLI tool for advanced batch processing.</p>
+                    
+                    <div class="feature-grid-docs">
+                        <div class="feature-item-docs">
+                            <i class="fas fa-globe feature-icon-docs"></i>
+                            <h3>Web Interface</h3>
+                            <p>Browser-based transcription with drag & drop</p>
+                        </div>
+                        <div class="feature-item-docs">
+                            <i class="fas fa-terminal feature-icon-docs"></i>
+                            <h3>CLI Tool</h3>
+                            <p>Command-line interface for batch processing</p>
+                        </div>
+                        <div class="feature-item-docs">
+                            <i class="fas fa-brain feature-icon-docs"></i>
+                            <h3>AI-Powered</h3>
+                            <p>OpenAI Whisper for highest accuracy</p>
+                        </div>
+                        <div class="feature-item-docs">
+                            <i class="fas fa-shield-alt feature-icon-docs"></i>
+                            <h3>Privacy-First</h3>
+                            <p>Your API keys never leave your browser</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="quick-start" class="doc-section">
+                    <h2>🚀 Quick Start</h2>
+                    
+                    <div class="quick-start-options">
+                        <div class="quick-option">
+                            <h3>🌐 Web Interface (Easiest)</h3>
+                            <ol>
+                                <li><a href="index.html">Visit the web app</a></li>
+                                <li>Upload your audio file</li>
+                                <li>Choose demo mode or add your OpenAI API key</li>
+                                <li>Get instant transcription results</li>
+                            </ol>
+                            <a href="index.html" class="btn-quick">Try Web App Now</a>
+                        </div>
+                        
+                        <div class="quick-option">
+                            <h3>💻 CLI Installation</h3>
+                            <pre><code class="language-bash"># Clone the repository
+git clone https://github.com/ombharatiya/transcript-ai.git
+cd transcript-ai/cli
+
+# Run setup script
+python setup.py
+
+# Start transcribing
+source venv/bin/activate
+python src/audio_transcriber.py input/audio.mp3</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="web-interface" class="doc-section">
+                    <h2>🌐 Web Interface Guide</h2>
+                    
+                    <h3>Two Modes Available</h3>
+                    <div class="mode-comparison">
+                        <div class="mode-card">
+                            <h4><i class="fas fa-play-circle"></i> Demo Mode</h4>
+                            <p><strong>Perfect for testing</strong></p>
+                            <ul>
+                                <li>No API key required</li>
+                                <li>Uses sample text responses</li>
+                                <li>Test all UI features</li>
+                                <li>Validate audio file formats</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mode-card">
+                            <h4><i class="fas fa-brain"></i> Real AI Mode</h4>
+                            <p><strong>Actual transcription</strong></p>
+                            <ul>
+                                <li>Requires OpenAI API key</li>
+                                <li>Real Whisper AI transcription</li>
+                                <li>Support for all languages</li>
+                                <li>Translation capabilities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Using Your OpenAI API Key</h3>
+                    <div class="security-info">
+                        <h4><i class="fas fa-shield-alt"></i> Security Guarantee</h4>
+                        <ul>
+                            <li>✅ Stored only in browser memory</li>
+                            <li>✅ Never sent to our servers</li>
+                            <li>✅ Direct communication with OpenAI</li>
+                            <li>✅ Cleared when you close the tab</li>
+                        </ul>
+                        <p><strong>Get your API key:</strong> <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform <i class="fas fa-external-link-alt"></i></a></p>
+                    </div>
+                </section>
+
+                <section id="cli-tool" class="doc-section">
+                    <h2>💻 CLI Tool Guide</h2>
+                    
+                    <h3>Installation</h3>
+                    <pre><code class="language-bash"># Automatic setup (recommended)
+cd transcript-ai/cli
+python setup.py
+
+# Manual setup
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt</code></pre>
+
+                    <h3>Basic Usage</h3>
+                    <pre><code class="language-bash"># Single file
+python src/audio_transcriber.py input/audio.mp3
+
+# Batch processing
+python src/audio_transcriber.py input/*.wav --batch
+
+# Different AI model
+python src/audio_transcriber.py audio.mp3 --model large
+
+# Specify language
+python src/audio_transcriber.py audio.mp3 --language en
+
+# Translate to English
+python src/audio_transcriber.py foreign.mp3 --task translate</code></pre>
+
+                    <h3>Advanced Options</h3>
+                    <pre><code class="language-bash"># Custom output directory
+python src/audio_transcriber.py audio.mp3 --output-dir results/
+
+# Skip JSON output
+python src/audio_transcriber.py audio.mp3 --no-json
+
+# File information only
+python src/audio_transcriber.py audio.mp3 --info
+
+# Adjust temperature
+python src/audio_transcriber.py audio.mp3 --temperature 0.2</code></pre>
+                </section>
+
+                <section id="features" class="doc-section">
+                    <h2>✨ Features</h2>
+                    
+                    <div class="feature-list">
+                        <div class="feature-detail">
+                            <h3><i class="fas fa-music"></i> Audio Format Support</h3>
+                            <p><strong>Web Interface:</strong> MP3, WAV, M4A, FLAC, OGG, WebM</p>
+                            <p><strong>CLI Tool:</strong> All above + AAC (converted via FFmpeg)</p>
+                        </div>
+                        
+                        <div class="feature-detail">
+                            <h3><i class="fas fa-robot"></i> AI Models</h3>
+                            <ul>
+                                <li><strong>Whisper-1:</strong> Web interface (OpenAI API)</li>
+                                <li><strong>Tiny/Base/Small/Medium/Large:</strong> CLI tool options</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-detail">
+                            <h3><i class="fas fa-globe"></i> Languages</h3>
+                            <p>99+ languages supported with automatic detection</p>
+                            <p>Built-in translation to English</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="formats" class="doc-section">
+                    <h2>🎵 Supported Audio Formats</h2>
+                    
+                    <div class="format-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Format</th>
+                                    <th>Extension</th>
+                                    <th>Web Interface</th>
+                                    <th>CLI Tool</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>MP3</td>
+                                    <td>.mp3</td>
+                                    <td>✅</td>
+                                    <td>✅</td>
+                                    <td>Most common format</td>
+                                </tr>
+                                <tr>
+                                    <td>WAV</td>
+                                    <td>.wav</td>
+                                    <td>✅</td>
+                                    <td>✅</td>
+                                    <td>High quality, large files</td>
+                                </tr>
+                                <tr>
+                                    <td>M4A</td>
+                                    <td>.m4a</td>
+                                    <td>✅</td>
+                                    <td>✅</td>
+                                    <td>Apple's format</td>
+                                </tr>
+                                <tr>
+                                    <td>FLAC</td>
+                                    <td>.flac</td>
+                                    <td>✅</td>
+                                    <td>✅</td>
+                                    <td>Lossless compression</td>
+                                </tr>
+                                <tr>
+                                    <td>OGG</td>
+                                    <td>.ogg</td>
+                                    <td>✅</td>
+                                    <td>✅</td>
+                                    <td>Open source format</td>
+                                </tr>
+                                <tr>
+                                    <td>WebM</td>
+                                    <td>.webm</td>
+                                    <td>✅</td>
+                                    <td>✅</td>
+                                    <td>Web-optimized</td>
+                                </tr>
+                                <tr class="format-limited">
+                                    <td>AAC</td>
+                                    <td>.aac</td>
+                                    <td>❌</td>
+                                    <td>✅</td>
+                                    <td>CLI only (FFmpeg converts)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="troubleshooting" class="doc-section">
+                    <h2>🔧 Troubleshooting</h2>
+                    
+                    <div class="troubleshoot-item">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Common Issues</h3>
+                        
+                        <h4>Web Interface</h4>
+                        <ul>
+                            <li><strong>Invalid API key:</strong> Check your OpenAI key starts with 'sk-'</li>
+                            <li><strong>File format error:</strong> Use supported formats (no AAC)</li>
+                            <li><strong>Rate limit:</strong> Wait a few minutes between requests</li>
+                        </ul>
+                        
+                        <h4>CLI Tool</h4>
+                        <ul>
+                            <li><strong>FFmpeg not found:</strong> Run the setup script or install manually</li>
+                            <li><strong>Out of memory:</strong> Use smaller model (tiny/base)</li>
+                            <li><strong>Permission denied:</strong> Check file permissions</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="use-cases" class="doc-section">
+                    <h2>🎯 Use Cases</h2>
+                    
+                    <div class="use-case-grid">
+                        <div class="use-case-item">
+                            <h3><i class="fas fa-briefcase"></i> Business</h3>
+                            <ul>
+                                <li>Meeting transcriptions</li>
+                                <li>Interview documentation</li>
+                                <li>Customer support analysis</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="use-case-item">
+                            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                            <ul>
+                                <li>Lecture notes</li>
+                                <li>Research interviews</li>
+                                <li>Language learning</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="use-case-item">
+                            <h3><i class="fas fa-video"></i> Content Creation</h3>
+                            <ul>
+                                <li>Podcast show notes</li>
+                                <li>Video subtitles</li>
+                                <li>Social media captions</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="use-case-item">
+                            <h3><i class="fas fa-universal-access"></i> Accessibility</h3>
+                            <ul>
+                                <li>Hearing accessibility</li>
+                                <li>Voice disabilities</li>
+                                <li>Multi-language support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contributing" class="doc-section">
+                    <h2>🤝 Contributing</h2>
+                    
+                    <p>TranscriptAI is open source and welcomes contributions!</p>
+                    
+                    <h3>Ways to Contribute</h3>
+                    <ul>
+                        <li><strong>Report bugs:</strong> <a href="https://github.com/ombharatiya/transcript-ai/issues" target="_blank">GitHub Issues</a></li>
+                        <li><strong>Suggest features:</strong> Open a feature request</li>
+                        <li><strong>Improve documentation:</strong> Submit PRs for docs</li>
+                        <li><strong>Add translations:</strong> Help with internationalization</li>
+                    </ul>
+                    
+                    <h3>Development Setup</h3>
+                    <pre><code class="language-bash"># Fork the repository
+git clone https://github.com/yourusername/transcript-ai.git
+
+# Set up CLI development
+cd transcript-ai/cli
+python setup.py
+
+# Set up web development
+cd transcript-ai/web
+npm install  # if using build tools
+python -m http.server 8000  # serve locally</code></pre>
+                </section>
+
+                <!-- Footer -->
+                <footer class="docs-footer">
+                    <div class="footer-content">
+                        <p>Made with ❤️ for the developer community</p>
+                        <div class="footer-links">
+                            <a href="https://github.com/ombharatiya/transcript-ai" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://github.com/ombharatiya/transcript-ai/issues" target="_blank">
+                                <i class="fas fa-bug"></i> Issues
+                            </a>
+                            <a href="index.html">
+                                <i class="fas fa-home"></i> Web App
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="docs.js"></script>
+</body>
+</html>
