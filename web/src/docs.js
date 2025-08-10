@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSmoothScrolling();
     initializeActiveSectionHighlighting();
     initializeMobileNavigation();
+    initializeFAQToggles();
 });
 
 function initializeSmoothScrolling() {
@@ -71,6 +72,36 @@ function initializeMobileNavigation() {
             });
         });
     }
+}
+
+function initializeFAQToggles() {
+    // Add click handlers for FAQ items
+    document.querySelectorAll('.faq-item h3').forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.closest('.faq-item');
+            const answer = faqItem.querySelector('[itemprop="acceptedAnswer"]');
+            
+            // Toggle the open state
+            faqItem.classList.toggle('open');
+            
+            // Toggle answer visibility with smooth animation
+            if (faqItem.classList.contains('open')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                answer.style.opacity = '1';
+            } else {
+                answer.style.maxHeight = '0';
+                answer.style.opacity = '0';
+            }
+        });
+    });
+    
+    // Initially hide all answers
+    document.querySelectorAll('.faq-item [itemprop="acceptedAnswer"]').forEach(answer => {
+        answer.style.maxHeight = '0';
+        answer.style.opacity = '0';
+        answer.style.overflow = 'hidden';
+        answer.style.transition = 'max-height 0.3s ease, opacity 0.3s ease';
+    });
 }
 
 // Add CSS for active section highlighting

@@ -1,10 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/SoftwareApplication">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TranscriptAI Documentation - Complete guide for CLI and web interface usage">
-    <title>TranscriptAI Documentation</title>
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>TranscriptAI Documentation - Free AI Audio Transcription Tool Guide | OpenAI Whisper</title>
+    <meta name="title" content="TranscriptAI Documentation - Free AI Audio Transcription Tool Guide | OpenAI Whisper">
+    <meta name="description" content="Complete documentation for TranscriptAI - Free AI-powered audio transcription using OpenAI Whisper. Convert speech to text in 99+ languages. CLI tool and web interface guide with installation instructions, usage examples, and API integration.">
+    <meta name="keywords" content="TranscriptAI documentation, AI transcription tool, OpenAI Whisper guide, speech to text tutorial, audio transcription API, CLI transcription tool, free voice recognition, audio converter documentation, AI voice processing">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="TranscriptAI">
+    <link rel="canonical" href="https://ombharatiya.github.io/transcript-ai/docs.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TranscriptAI">
+    <meta property="og:url" content="https://ombharatiya.github.io/transcript-ai/docs.html">
+    <meta property="og:title" content="TranscriptAI Documentation - Free AI Audio Transcription Tool Guide">
+    <meta property="og:description" content="Complete guide for TranscriptAI - Free AI-powered audio transcription using OpenAI Whisper. Convert speech to text in 99+ languages with CLI and web interface.">
+    <meta property="og:image" content="https://ombharatiya.github.io/transcript-ai/assets/transcriptai-docs-banner.png">
+    <meta property="og:image:alt" content="TranscriptAI Documentation - AI Audio Transcription Tool">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ombharatiya.github.io/transcript-ai/docs.html">
+    <meta name="twitter:title" content="TranscriptAI Documentation - Free AI Audio Transcription Tool Guide">
+    <meta name="twitter:description" content="Complete guide for TranscriptAI - Free AI-powered audio transcription using OpenAI Whisper. Convert speech to text in 99+ languages.">
+    <meta name="twitter:image" content="https://ombharatiya.github.io/transcript-ai/assets/transcriptai-docs-banner.png">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "TranscriptAI",
+        "description": "Free AI-powered audio transcription tool using OpenAI Whisper for converting speech to text in 99+ languages",
+        "url": "https://ombharatiya.github.io/transcript-ai",
+        "downloadUrl": "https://github.com/ombharatiya/transcript-ai",
+        "operatingSystem": ["Windows", "macOS", "Linux", "Web Browser"],
+        "applicationCategory": "MultimediaApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "TranscriptAI",
+            "url": "https://github.com/ombharatiya/transcript-ai"
+        },
+        "programmingLanguage": ["Python", "JavaScript"],
+        "runtimePlatform": ["Python 3.8+", "Web Browser"],
+        "featureList": [
+            "AI-powered speech recognition",
+            "99+ language support",
+            "Multiple audio format support",
+            "CLI and web interface",
+            "OpenAI Whisper integration",
+            "Batch processing",
+            "Real-time transcription"
+        ],
+        "screenshot": "https://ombharatiya.github.io/transcript-ai/assets/transcriptai-screenshot.png"
+    }
+    </script>
+    
+    <!-- Technical SEO -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="msapplication-TileColor" content="#667eea">
+    <link rel="alternate" type="application/rss+xml" title="TranscriptAI Updates" href="https://github.com/ombharatiya/transcript-ai/releases.atom">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://api.openai.com">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="docs.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -52,6 +122,7 @@
                     <li><a href="#api-keys">API Keys & Security</a></li>
                     <li><a href="#troubleshooting">Troubleshooting</a></li>
                     <li><a href="#use-cases">Use Cases</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contributing">Contributing</a></li>
                 </ul>
                 
@@ -79,9 +150,18 @@
                     </div>
                 </header>
 
-                <section id="overview" class="doc-section">
-                    <h2>🌟 Overview</h2>
-                    <p>TranscriptAI is a powerful, free audio transcription tool that uses OpenAI's cutting-edge Whisper AI model. It's available as both a web interface for quick transcriptions and a CLI tool for advanced batch processing.</p>
+                <section id="overview" class="doc-section" itemscope itemtype="https://schema.org/Article">
+                    <header>
+                        <h2 itemprop="headline">🌟 Overview</h2>
+                    </header>
+                    <div itemprop="articleBody">
+                        <p><strong>TranscriptAI</strong> is a powerful, completely free audio transcription tool that leverages OpenAI's state-of-the-art Whisper AI model for highly accurate speech-to-text conversion. Whether you need to transcribe meetings, interviews, podcasts, or any audio content, TranscriptAI provides two convenient interfaces:</p>
+                        <ul>
+                            <li><strong>Web Interface:</strong> Browser-based tool for quick transcriptions with drag-and-drop functionality</li>
+                            <li><strong>CLI Tool:</strong> Command-line interface for developers and power users requiring batch processing and automation</li>
+                        </ul>
+                        <p>Supporting <strong>99+ languages</strong> with automatic detection and translation capabilities, TranscriptAI processes multiple audio formats including MP3, WAV, M4A, FLAC, OGG, WebM, and AAC (CLI only).</p>
+                    </div>
                     
                     <div class="feature-grid-docs">
                         <div class="feature-item-docs">
@@ -406,6 +486,102 @@ python setup.py
 cd transcript-ai/web
 npm install  # if using build tools
 python -m http.server 8000  # serve locally</code></pre>
+                </section>
+
+                <section id="faq" class="doc-section" itemscope itemtype="https://schema.org/FAQPage">
+                    <h2>❓ Frequently Asked Questions</h2>
+                    
+                    <div class="faq-container">
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <h3 itemprop="name">What is TranscriptAI and how does it work?</h3>
+                            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>TranscriptAI is a free, open-source audio transcription tool that uses OpenAI's Whisper AI model to convert speech to text. It works by processing audio files through advanced machine learning algorithms that can recognize speech patterns in 99+ languages with high accuracy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <h3 itemprop="name">How accurate is TranscriptAI's transcription?</h3>
+                            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>TranscriptAI uses OpenAI's Whisper model, which achieves industry-leading accuracy rates of 95%+ for clear audio in supported languages. Accuracy depends on audio quality, speaker clarity, background noise, and language/accent.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <h3 itemprop="name">What audio formats does TranscriptAI support?</h3>
+                            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>The web interface supports MP3, WAV, M4A, FLAC, OGG, and WebM formats. The CLI tool supports all these formats plus AAC (converted via FFmpeg). Maximum file size is 25MB for the web interface.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <h3 itemprop="name">Is TranscriptAI really free? Are there any hidden costs?</h3>
+                            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>TranscriptAI is completely free and open source. For real AI transcription, you need your own OpenAI API key (which has usage-based pricing from OpenAI). The demo mode and CLI tool (with local models) are entirely free.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <h3 itemprop="name">How do I install and use the CLI tool?</h3>
+                            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Clone the repository from GitHub, navigate to the CLI directory, run 'python setup.py' for automatic setup, then use 'python src/audio_transcriber.py [audio_file]' to transcribe. The setup script installs all dependencies including FFmpeg.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <h3 itemprop="name">What languages are supported for transcription?</h3>
+                            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>TranscriptAI supports 99+ languages including English, Spanish, French, German, Italian, Portuguese, Russian, Japanese, Korean, Chinese, Arabic, Hindi, and many more. It features automatic language detection and can translate any language to English.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <h3 itemprop="name">Is my data secure? Do you store my audio files?</h3>
+                            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Your data is completely secure. We never store your audio files or API keys. The web interface processes files client-side and sends them directly to OpenAI (when using real mode). The CLI tool processes everything locally on your machine.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <h3 itemprop="name">Can I use TranscriptAI for commercial purposes?</h3>
+                            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Yes! TranscriptAI is released under the MIT License, allowing commercial use. However, when using OpenAI's API, you must comply with OpenAI's terms of service for commercial usage.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <h3 itemprop="name">How do I get an OpenAI API key?</h3>
+                            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Visit <a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com/api-keys</a>, create an account, and generate a new API key. You'll need to add billing information to your OpenAI account to use the API, but you only pay for actual usage.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <h3 itemprop="name">What's the difference between demo mode and real AI mode?</h3>
+                            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <div itemprop="text">
+                                    <p>Demo mode shows sample transcription text to test the interface without requiring an API key. Real AI mode uses your OpenAI API key to perform actual transcription using the Whisper model, providing accurate results for your audio files.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Footer -->
