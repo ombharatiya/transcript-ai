@@ -14,6 +14,14 @@ class TranscriptAI {
         this.uploadArea = document.getElementById('uploadArea');
         this.fileInput = document.getElementById('fileInput');
         
+        // Mode selection elements
+        this.demoMode = document.getElementById('demoMode');
+        this.realMode = document.getElementById('realMode');
+        this.apiKeyInput = document.getElementById('apiKeyInput');
+        this.apiKeyField = document.getElementById('apiKey');
+        this.modelNote = document.getElementById('modelNote');
+        this.transcribeBtnText = document.getElementById('transcribeBtnText');
+        
         // Options elements
         this.optionsSection = document.getElementById('optionsSection');
         this.modelSelect = document.getElementById('modelSelect');
@@ -39,6 +47,11 @@ class TranscriptAI {
         // File upload events
         this.uploadArea.addEventListener('click', () => this.fileInput.click());
         this.fileInput.addEventListener('change', (e) => this.handleFileSelect(e.target.files[0]));
+        
+        // Mode selection events
+        this.demoMode.addEventListener('change', () => this.handleModeChange());
+        this.realMode.addEventListener('change', () => this.handleModeChange());
+        this.apiKeyField.addEventListener('input', () => this.validateApiKey());
         
         // Transcription button
         this.transcribeBtn.addEventListener('click', () => this.startTranscription());
@@ -145,7 +158,7 @@ class TranscriptAI {
     showOptions() {
         this.optionsSection.style.display = 'block';
         this.optionsSection.classList.add('slide-up');
-        this.transcribeBtn.disabled = false;
+        this.validateTranscribeButton();
     }
 
     clearResults() {
@@ -155,9 +168,51 @@ class TranscriptAI {
         this.errorMessage.style.display = 'none';
     }
 
+    handleModeChange() {
+        const isRealMode = this.realMode.checked;
+        
+        // Show/hide API key input
+        this.apiKeyInput.style.display = isRealMode ? 'block' : 'none';
+        
+        // Update UI text
+        if (isRealMode) {
+            this.modelNote.textContent = 'Real transcription with OpenAI Whisper API';
+            this.transcribeBtnText.textContent = 'Start AI Transcription';
+        } else {
+            this.modelNote.textContent = 'Demo mode: Uses sample text only';
+            this.transcribeBtnText.textContent = 'Start Demo Transcription';
+        }
+        
+        // Validate button state
+        this.validateTranscribeButton();
+    }
+
+    validateApiKey() {
+        const apiKey = this.apiKeyField.value.trim();
+        const isValidKey = apiKey.startsWith('sk-') && apiKey.length > 20;
+        
+        if (apiKey && !isValidKey) {
+            this.apiKeyField.style.borderColor = '#dc3545';
+        } else {
+            this.apiKeyField.style.borderColor = '#ddd';
+        }
+        
+        this.validateTranscribeButton();
+    }
+
+    validateTranscribeButton() {
+        const isRealMode = this.realMode.checked;
+        const hasFile = this.selectedFile !== null;
+        const hasValidApiKey = !isRealMode || (this.apiKeyField.value.trim().startsWith('sk-') && this.apiKeyField.value.trim().length > 20);
+        
+        this.transcribeBtn.disabled = !hasFile || !hasValidApiKey;
+    }
+
     async startTranscription() {
         if (!this.selectedFile || this.isTranscribing) return;
 
+        const isRealMode = this.realMode.checked;
+        
         this.isTranscribing = true;
         this.transcribeBtn.disabled = true;
         this.transcribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
@@ -166,21 +221,24 @@ class TranscriptAI {
         this.clearError();
 
         try {
-            // Simulate API call since we can't run Whisper directly in browser
-            // In a real implementation, you would:
-            // 1. Upload file to your backend server
-            // 2. Process with Whisper on server
-            // 3. Return results to frontend
+            let result;
             
-            const result = await this.simulateTranscription();
+            if (isRealMode) {
+                // Use real OpenAI API
+                result = await this.transcribeWithOpenAI();
+            } else {
+                // Use demo simulation
+                result = await this.simulateTranscription();
+            }
+            
             this.showResult(result);
             
         } catch (error) {
             this.showError('Transcription failed: ' + error.message);
         } finally {
             this.isTranscribing = false;
-            this.transcribeBtn.disabled = false;
-            this.transcribeBtn.innerHTML = '<i class="fas fa-magic"></i> Start Transcription';
+            this.validateTranscribeButton();
+            this.transcribeBtn.innerHTML = `<i class="fas fa-magic"></i> <span id="transcribeBtnText">${isRealMode ? 'Start AI Transcription' : 'Start Demo Transcription'}</span>`;
             this.hideProgress();
         }
     }
@@ -210,6 +268,77 @@ class TranscriptAI {
         this.progressBar.style.display = 'none';
     }
 
+    async transcribeWithOpenAI() {
+        const apiKey = this.apiKeyField.value.trim();
+        
+        if (!apiKey || !apiKey.startsWith('sk-')) {
+            throw new Error('Invalid OpenAI API key. Please check your key and try again.');
+        }
+
+        const formData = new FormData();
+        formData.append('file', this.selectedFile);
+        formData.append('model', 'whisper-1');
+        
+        // Add language if specified
+        const language = this.languageSelect.value;
+        if (language) {
+            formData.append('language', language);
+        }
+        
+        // Add task (transcribe or translate)
+        const task = this.translateCheck.checked ? 'translate' : 'transcribe';
+        formData.append('response_format', 'verbose_json');
+        
+        try {
+            const response = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`,
+                },
+                body: formData
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                
+                if (response.status === 401) {
+                    throw new Error('Invalid API key. Please check your OpenAI API key.');
+                } else if (response.status === 429) {
+                    throw new Error('Rate limit exceeded. Please try again later.');
+                } else if (response.status === 413) {
+                    throw new Error('File too large. Please use a smaller audio file.');
+                } else {
+                    throw new Error(errorData.error?.message || `API error: ${response.status}`);
+                }
+            }
+
+            const result = await response.json();
+            
+            // Format the result to match our expected structure
+            return {
+                text: result.text,
+                language: result.language || 'auto-detected',
+                model: 'whisper-1',
+                duration: result.duration ? this.formatDuration(result.duration) : 'Unknown',
+                fileSize: this.formatFileSize(this.selectedFile.size),
+                segments: result.segments || [],
+                isRealTranscription: true
+            };
+            
+        } catch (error) {
+            if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                throw new Error('Network error. Please check your internet connection and try again.');
+            }
+            throw error;
+        }
+    }
+
+    formatDuration(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = Math.floor(seconds % 60);
+        return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+    }
+
     async simulateTranscription() {
         // This is a demo implementation
         // In production, you would send the audio file to your backend API
@@ -237,11 +366,18 @@ class TranscriptAI {
 
     showResult(result) {
         this.outputText.textContent = result.text;
+        
+        const transcriptionType = result.isRealTranscription ? 
+            '<span style="color: #28a745;">✓ Real AI Transcription</span>' : 
+            '<span style="color: #ffc107;">⚠ Demo Mode</span>';
+        
         this.transcriptionInfo.innerHTML = `
+            <div><strong>Type:</strong> ${transcriptionType}</div>
             <div><strong>Language:</strong> ${this.getLanguageName(result.language)}</div>
             <div><strong>Model:</strong> ${result.model}</div>
             <div><strong>Duration:</strong> ${result.duration}</div>
             <div><strong>File Size:</strong> ${result.fileSize}</div>
+            ${result.segments && result.segments.length > 0 ? `<div><strong>Segments:</strong> ${result.segments.length}</div>` : ''}
         `;
         
         this.transcriptionOutput.style.display = 'block';
