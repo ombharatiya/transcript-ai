@@ -376,11 +376,11 @@ This project uses OpenAI's Whisper model. Please refer to [Whisper's license](ht
 `AI transcription`, `OpenAI Whisper`, `speech to text`, `audio converter`, `voice recognition`, `Python CLI tool`, `batch audio processing`, `multilingual transcription`, `free transcription software`, `developer tools`
 
 ## 📊 Repository Stats
-![GitHub stars](https://img.shields.io/github/stars/yourusername/transcript-ai)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/transcript-ai)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/transcript-ai)
+![GitHub stars](https://img.shields.io/github/stars/ombharatiya/transcript-ai)
+![GitHub forks](https://img.shields.io/github/forks/ombharatiya/transcript-ai)
+![GitHub issues](https://img.shields.io/github/issues/ombharatiya/transcript-ai)
 ![Python version](https://img.shields.io/badge/python-3.8%2B-blue)
-![License](https://img.shields.io/github/license/yourusername/transcript-ai)
+![License](https://img.shields.io/github/license/ombharatiya/transcript-ai)
 
 ## Acknowledgments
 
