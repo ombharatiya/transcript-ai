@@ -13,6 +13,8 @@ Perfect for quick transcriptions and non-technical users
 - **Instant Results** - Get transcriptions in seconds
 - **Mobile Friendly** - Works on any device
 
+> 📋 **Setting up the web interface?** See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for GitHub Pages setup instructions.
+
 ### 💻 **CLI Tool** - For Developers & Power Users
 Advanced features for batch processing and automation
 - **Batch Processing** - Handle hundreds of files
