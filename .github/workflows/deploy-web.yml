@@ -1,0 +1,65 @@
+name: Deploy Web Interface to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+    paths: 
+      - 'web/**'
+      - '.github/workflows/deploy-web.yml'
+  pull_request:
+    branches: [ main, master ]
+    paths: 
+      - 'web/**'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: web/package.json
+      
+    - name: Install dependencies (if package.json exists)
+      run: |
+        if [ -f web/package.json ]; then
+          cd web
+          npm ci
+        fi
+    
+    - name: Build web interface
+      run: |
+        # Copy web source files to docs for GitHub Pages
+        mkdir -p docs
+        cp -r web/src/* docs/
+        
+        # Add any build processing here if needed
+        # For now, we're using vanilla HTML/CSS/JS
+        
+        echo "Web interface built successfully"
+    
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
+        publish_branch: gh-pages
+        
+    - name: Create deployment summary
+      run: |
+        echo "## 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Web interface deployed to GitHub Pages" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "🌐 **Live URL**: https://${{ github.repository_owner }}.github.io/transcript-ai" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "📁 **Source**: \`web/src/\`" >> $GITHUB_STEP_SUMMARY
+        echo "📁 **Deployed**: \`docs/\` → \`gh-pages\` branch" >> $GITHUB_STEP_SUMMARY

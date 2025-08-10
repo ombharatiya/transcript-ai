@@ -1,16 +1,32 @@
-# 🎙️ TranscriptAI - Advanced Audio Transcription Tool
+# 🎙️ TranscriptAI - AI-Powered Audio Transcription
 
-> **Free, Open-Source AI-Powered Speech-to-Text Converter**
+> **Free, Open-Source Speech-to-Text Converter - CLI & Web Interface**
 
-Transform your audio files into accurate text transcriptions using OpenAI's cutting-edge Whisper AI model. Perfect for developers, content creators, researchers, and professionals who need reliable speech-to-text conversion.
+Transform your audio files into accurate text transcriptions using OpenAI's cutting-edge Whisper AI model. Available as both a powerful CLI tool for developers and a user-friendly web interface.
 
-# 🚀 Why Choose TranscriptAI?
+## 🚀 Choose Your Interface
 
-**🎯 Built for Professionals** - Production-ready tool with enterprise features  
+### 🌐 **Web Interface** - [Try Now](https://ombharatiya.github.io/transcript-ai)
+Perfect for quick transcriptions and non-technical users
+- **No Installation Required** - Use directly in your browser
+- **Drag & Drop Interface** - Simple and intuitive
+- **Instant Results** - Get transcriptions in seconds
+- **Mobile Friendly** - Works on any device
+
+### 💻 **CLI Tool** - For Developers & Power Users
+Advanced features for batch processing and automation
+- **Batch Processing** - Handle hundreds of files
+- **Advanced Configuration** - Full control over parameters
+- **Scriptable** - Integrate into your workflows
+- **All Features** - Access to every Whisper model and option
+
+## ✨ Why Choose TranscriptAI?
+
+**🎯 Built for Everyone** - Web interface for ease, CLI for power  
 **🤖 AI-Powered Accuracy** - Uses OpenAI's state-of-the-art Whisper model  
-**⚡ Lightning Fast** - Batch process multiple files simultaneously  
+**⚡ Lightning Fast** - Process files in seconds, not minutes  
 **🌍 Multilingual Support** - Transcribe and translate 99+ languages  
-**📦 Zero Configuration** - Works out-of-the-box with automated setup  
+**📦 Zero Configuration** - Web version works instantly  
 **💰 Completely Free** - No API costs, subscriptions, or hidden fees
 
 ## ✨ Key Features
@@ -36,38 +52,48 @@ Get clean text files **plus** detailed JSON with timestamps, confidence scores, 
 ## Project Structure
 
 ```
-speechtotext/
-├── src/
-│   └── audio_transcriber.py      # Main transcription script
-├── input/                        # Place audio files here
-│   ├── sample_meeting.wav        # Sample business meeting
-│   ├── sample_interview.mp3      # Sample interview
-│   └── sample_lecture.m4a        # Sample educational content
-├── outputs/                      # Transcription results
-│   ├── sample_meeting_transcription.txt
-│   └── sample_meeting_detailed.json
-├── config/
-│   └── default_config.json      # Configuration settings
-├── temp/                         # Your personal files (git-ignored)
-├── logs/                         # Application logs
-├── venv/                         # Python virtual environment
-├── requirements.txt              # Python dependencies
-├── setup.py                      # Automated setup script
-└── README.md                     # This file
+transcript-ai/
+├── cli/                          # CLI Tool (Python)
+│   ├── src/
+│   │   └── audio_transcriber.py  # Main CLI script
+│   ├── input/                    # Sample audio files
+│   ├── outputs/                  # Sample transcriptions
+│   ├── requirements.txt          # Python dependencies
+│   └── setup.py                  # CLI setup script
+├── web/                          # Web Interface
+│   ├── src/
+│   │   ├── index.html            # Main web page
+│   │   ├── styles.css            # Web styling
+│   │   └── app.js                # Web functionality
+│   └── dist/                     # Built files
+├── docs/                         # GitHub Pages (auto-deployed)
+├── shared/                       # Common resources
+│   └── examples/                 # Usage examples
+├── .github/
+│   └── workflows/                # CI/CD automation
+├── README.md                     # This file
+└── LICENSE                       # MIT License
 ```
 
-## Installation
+## 🚀 Quick Start
 
-### Prerequisites
+### 🌐 Web Interface (Easiest)
+1. Visit **[ombharatiya.github.io/transcript-ai](https://ombharatiya.github.io/transcript-ai)**
+2. Upload your audio file
+3. Get instant transcription results
+4. No installation required!
 
+### 💻 CLI Installation
+
+#### Prerequisites
 - Python 3.8 or higher
 - macOS, Linux, or Windows
 
-### Automatic Setup (Recommended)
-
+#### Automatic Setup (Recommended)
 ```bash
-# Clone or download this project
-cd speechtotext
+# Clone the repository
+git clone https://github.com/ombharatiya/transcript-ai.git
+cd transcript-ai/cli
 
 # Run the setup script (handles everything automatically)
 python setup.py
@@ -79,22 +105,26 @@ The setup script will:
 - Install ffmpeg (system-wide or locally)
 - Configure everything for immediate use
 
-### Manual Setup
-
+#### Manual Setup
 If you prefer manual installation:
 
-1. **Create and activate virtual environment**
+1. **Navigate to CLI directory**
+   ```bash
+   cd transcript-ai/cli
+   ```
+
+2. **Create and activate virtual environment**
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-2. **Install Python dependencies**
+3. **Install Python dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Install FFmpeg**
+4. **Install FFmpeg**
    ```bash
    # macOS
    brew install ffmpeg
@@ -106,13 +136,21 @@ If you prefer manual installation:
    # Download from https://ffmpeg.org/download.html and add to PATH
    ```
 
-## Usage
+## 📝 Usage
 
-### Basic Transcription
+### 🌐 Web Interface Usage
+1. **Visit the web app**: [ombharatiya.github.io/transcript-ai](https://ombharatiya.github.io/transcript-ai)
+2. **Upload audio**: Drag & drop or click to select your audio file
+3. **Choose options**: Select AI model, language, and translation preferences
+4. **Get results**: Download your transcription as text file
 
+### 💻 CLI Usage
+
+#### Basic Transcription
 ```bash
-# Activate environment
-source venv/bin/activate
+# Navigate to CLI directory and activate environment
+cd transcript-ai/cli
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Transcribe a single file
 python src/audio_transcriber.py input/audio.mp3
