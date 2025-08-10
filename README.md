@@ -17,8 +17,7 @@ A powerful, user-friendly audio transcription tool built with OpenAI's Whisper m
 ```
 speechtotext/
 ├── src/
-│   ├── audio_transcriber.py      # Main transcription script
-│   └── transcribe_audio.py       # Original simple script
+│   └── audio_transcriber.py      # Main transcription script
 ├── input/                        # Place audio files here
 │   ├── sample_meeting.wav        # Sample business meeting
 │   ├── sample_interview.mp3      # Sample interview
@@ -95,49 +94,49 @@ If you prefer manual installation:
 source venv/bin/activate
 
 # Transcribe a single file
-python src/audio_transcriber.py audio.mp3
+python src/audio_transcriber.py input/audio.mp3
 
 # Use a different model
-python src/audio_transcriber.py audio.wav --model large
+python src/audio_transcriber.py input/audio.wav --model large
 
 # Specify language
-python src/audio_transcriber.py audio.aac --language en
+python src/audio_transcriber.py input/audio.aac --language en
 ```
 
 ### Advanced Options
 
 ```bash
 # Translate to English
-python src/audio_transcriber.py foreign_audio.mp3 --task translate
+python src/audio_transcriber.py input/foreign_audio.mp3 --task translate
 
 # Adjust sampling temperature for creative/technical content
-python src/audio_transcriber.py audio.wav --temperature 0.2
+python src/audio_transcriber.py input/audio.wav --temperature 0.2
 
 # Custom output directory
-python src/audio_transcriber.py audio.mp3 --output-dir /custom/path
+python src/audio_transcriber.py input/audio.mp3 --output-dir /custom/path
 
 # Skip detailed JSON output
-python src/audio_transcriber.py audio.mp3 --no-json
+python src/audio_transcriber.py input/audio.mp3 --no-json
 ```
 
 ### Batch Processing
 
 ```bash
 # Process multiple files
-python src/audio_transcriber.py *.mp3 --batch
+python src/audio_transcriber.py input/*.mp3 --batch
 
 # Process specific files
-python src/audio_transcriber.py file1.wav file2.aac file3.mp3
+python src/audio_transcriber.py input/file1.wav input/file2.aac input/file3.mp3
 
 # Batch with custom settings
-python src/audio_transcriber.py *.wav --batch --model medium --language es
+python src/audio_transcriber.py input/*.wav --batch --model medium --language es
 ```
 
 ### File Information
 
 ```bash
 # Check audio file details
-python src/audio_transcriber.py audio.mp3 --info
+python src/audio_transcriber.py input/audio.mp3 --info
 ```
 
 ## Whisper Models
@@ -235,22 +234,22 @@ Edit `config/default_config.json` to customize default settings:
 
 ### Personal Voice Notes
 ```bash
-python src/audio_transcriber.py voice_memo.m4a
+python src/audio_transcriber.py input/voice_memo.m4a
 ```
 
 ### Meeting Recordings
 ```bash
-python src/audio_transcriber.py meeting.wav --model medium --output-dir meetings/
+python src/audio_transcriber.py input/meeting.wav --model medium --output-dir meetings/
 ```
 
 ### Podcast Episodes
 ```bash
-python src/audio_transcriber.py podcast_*.mp3 --batch --model large
+python src/audio_transcriber.py input/podcast_*.mp3 --batch --model large
 ```
 
 ### Foreign Language Content
 ```bash
-python src/audio_transcriber.py spanish_audio.mp3 --language es --task translate
+python src/audio_transcriber.py input/spanish_audio.mp3 --language es --task translate
 ```
 
 ## Troubleshooting
@@ -288,10 +287,10 @@ python src/audio_transcriber.py file.mp3 --model small
 **4. Unsupported file format**
 ```bash
 # Check supported formats
-python src/audio_transcriber.py file.xyz --info
+python src/audio_transcriber.py input/file.xyz --info
 
 # Convert using ffmpeg
-ffmpeg -i input.xyz -c:a aac output.aac
+ffmpeg -i input/file.xyz -c:a aac input/output.aac
 ```
 
 ### Performance Tips
