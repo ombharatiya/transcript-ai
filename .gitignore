@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+env/
+ENV/
+
+# Temporary user files
+temp/
+
+# User-generated outputs (keep samples)
+outputs/*_transcription.txt
+outputs/*_detailed.json
+!outputs/sample_*
+!outputs/README.md
+
+# Logs
+logs/*.log
+
+# FFmpeg binaries (should not be in repo)
+ffmpeg
+ffmpeg.exe
+ffmpeg.zip
+ffmpeg_*
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Audio files (add specific ones you want to ignore)
+*.tmp
+*.temp
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
